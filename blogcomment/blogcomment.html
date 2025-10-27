@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .post {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+
+    .post:last-child {
+      border: none;
+    }
+
+    .post-title {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .post-title:hover {
+      text-decoration: underline;
+    }
+
+    .comment-section {
+      margin-top: 30px;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .comments {
+      background: #f2f2f2;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .comment {
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .comment strong {
+      color: #007bff;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #007bff;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>My Blog</h1>
+    <div><a href="#" onclick="showHome()">Home</a></div>
+  </div>
+
+  <div class="container" id="content">
+
+    <!-- Home Page -->
+    <div id="home">
+      <div class="post">
+        <a href="#" class="post-title" onclick="openPost('post1')">How to Start Blogging</a>
+        <p>Blogging is a great way to express yourself and share ideas with the world. Here's how you can get started...</p>
+      </div>
+      <div class="post">
+        <a href="#" class="post-title" onclick="openPost('post2')">HTML Basics</a>
+        <p>HTML is the foundation of web development. Learn the building blocks of every website in this sample guide.</p>
+      </div>
+      <div class="post">
+        <a href="#" class="post-title" onclick="openPost('post3')">Top 5 CSS Tips</a>
+        <p>Want to improve your web design? Here are 5 CSS tricks to make your site look professional.</p>
+      </div>
+    </div>
+
+    <!-- Post 1 -->
+    <div id="post1" style="display:none;">
+      <a href="#" class="back-link" onclick="showHome()">← Back to Home</a>
+      <h2>How to Start Blogging</h2>
+      <p>Blogging is a powerful way to connect with people. You can share your thoughts, ideas, and expertise. All you need is a topic and passion. Start by choosing a niche, selecting a platform, and writing consistently. The more you blog, the better you get!</p>
+
+      <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <input type="text" id="name1" placeholder="Your Name">
+        <textarea id="comment1" rows="3" placeholder="Your Comment"></textarea>
+        <button onclick="addComment('1')">Submit</button>
+
+        <div class="comments" id="comments1">
+          <h3>Comments</h3>
+          <div class="comment"><strong>Alice:</strong> This was super helpful. Thanks!</div>
+          <div class="comment"><strong>Bob:</strong> I always wanted to start a blog, and this gave me a push.</div>
+          <div class="comment"><strong>Clara:</strong> Great tips for beginners. Keep posting!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div id="post2" style="display:none;">
+      <a href="#" class="back-link" onclick="showHome()">← Back to Home</a>
+      <h2>HTML Basics</h2>
+      <p>HTML (HyperText Markup Language) is used to structure web pages. Learn how to use tags, attributes, and elements to build your own simple websites!</p>
+
+      <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <input type="text" id="name2" placeholder="Your Name">
+        <textarea id="comment2" rows="3" placeholder="Your Comment"></textarea>
+        <button onclick="addComment('2')">Submit</button>
+
+        <div class="comments" id="comments2">
+          <h3>Comments</h3>
+          <div class="comment"><strong>John:</strong> Nice and simple explanation!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div id="post3" style="display:none;">
+      <a href="#" class="back-link" onclick="showHome()">← Back to Home</a>
+      <h2>Top 5 CSS Tips</h2>
+      <p>Want to take your design to the next level? Use padding and margin wisely, choose readable fonts, use consistent color palettes, and make your site responsive.</p>
+
+      <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <input type="text" id="name3" placeholder="Your Name">
+        <textarea id="comment3" rows="3" placeholder="Your Comment"></textarea>
+        <button onclick="addComment('3')">Submit</button>
+
+        <div class="comments" id="comments3">
+          <h3>Comments</h3>
+          <div class="comment"><strong>Eva:</strong> Great design suggestions!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPost(postId) {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("post1").style.display = "none";
+      document.getElementById("post2").style.display = "none";
+      document.getElementById("post3").style.display = "none";
+      document.getElementById(postId).style.display = "block";
+    }
+
+    function showHome() {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("post1").style.display = "none";
+      document.getElementById("post2").style.display = "none";
+      document.getElementById("post3").style.display = "none";
+    }
+
+    function addComment(id) {
+      const name = document.getElementById("name" + id).value;
+      const comment = document.getElementById("comment" + id).value;
+      if (name && comment) {
+        const commentBox = document.createElement("div");
+        commentBox.classList.add("comment");
+        commentBox.innerHTML = `<strong>${name}:</strong> ${comment}`;
+        document.getElementById("comments" + id).appendChild(commentBox);
+        document.getElementById("name" + id).value = "";
+        document.getElementById("comment" + id).value = "";
+      } else {
+        alert("Please enter your name and comment!");
+      }
+    }
+  </script>
+</body>
+</html>
+
+
